@@ -10,7 +10,7 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1920, 1080), "SFML works!", sf::Style::Resize);
+    sf::RenderWindow window(sf::VideoMode(1920, 1080), "SFML works!", sf::Style::Close | sf::Style::Resize);
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
     sf::Event event;
