@@ -36,6 +36,7 @@
             display: inline-block;
             transition-duration: 0.4s;
             cursor: pointer;
+            margin: 10px;
         }
         .btn:hover {
             background-color: black;
@@ -52,8 +53,9 @@
     <div id="background">
         <script src="./utils/sampi.js"></script>
         <div id="choices">
-            <button onclick="sampiUse('showSkieur')" id="text" class="btn"></button>
-            <p id="score"></p>
+            <img src="logo.png" alt="logo" width="300px">
+            <button id="text" class="btn"></button>
+            <button onclick="sampiUse('showSkieur')" id="score"></button>
             <button class="btn" onclick="sampiUse('redirectToGame')">Play</button>
         </div>
         <script>

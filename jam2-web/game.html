@@ -10,7 +10,7 @@
         canvas {
             width: 100%;
             height: 100%;
-            background-color: #ccc;
+            background-color: #eb465b;
         }
     </style>
 </head>
@@ -30,17 +30,10 @@
         let keyPressed = [false, false];
         let score = 0;
         let previousKey;
-        let x = Math.random() * canvas.width;
-        let y = Math.random() * canvas.height;
+        let x = Math.random() * (canvas.width - 400);
+        let y = Math.random() * (canvas.height - 400);
         keys.push(generateRandomKey());
         keys.push(generateRandomKey());
-
-        // const bgImage = new Image();
-        // bgImage.src = 'illusion.svg';
-
-        // bgImage.onload = function () {
-        //     ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
-        // };
 
         function drawSphere(x, y, r, color, label) {
             const gradient = ctx.createRadialGradient(x, y, 0, x, y, r);
@@ -66,7 +59,7 @@
                 if (i % 2 === 0) {
                     drawSphere(x - r, y, r, 'white', keys[0]);
                 } else {
-                    drawSphere(x + r, y, r, 'black', keys[1]);
+                    drawSphere(x + r + 50, y, r, 'black', keys[1]);
                 }
             }
         }
@@ -101,11 +94,11 @@
                     ctx.clearRect(0, 0, canvas.width, canvas.height);
                     //ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
                     score++;
-                    drawText('Score: ' + score, 100, 100, 'red');
+                    drawText('Score: ' + score, 100, 100, 'white');
                     keys = [generateRandomKey(), generateRandomKey()];
                     keyPressed = [false, false];
-                    x = Math.random() * canvas.width;
-                    y = Math.random() * canvas.height;
+                    x = Math.random() * (canvas.width - 400);
+                    y = Math.random() * (canvas.height - 400);
                     generateSpheres(x, y);
                     timer = 3;
                 }
@@ -124,14 +117,14 @@
         setInterval(()=> {
             timer -= 1;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            drawText(timer, canvas.width / 2, canvas.height / 2, 'red');
-            drawText('Score: ' + score, 100, 100, 'red');
+            drawText(timer, canvas.width / 2, canvas.height / 2, 'white');
+            drawText('Score: ' + score, 100, 100, 'white');
             generateSpheres(x, y);
             if (timer <= 0) {
                 timer = 0;
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                drawText('Game Over', canvas.width / 2, canvas.height / 2, 'red');
-                drawText('Score: ' + score, 100, 100, 'red');
+                drawText('Game Over', canvas.width / 2, canvas.height / 2, 'white');
+                drawText('Score: ' + score, 100, 100, 'white');
                 window.location.href = 'index.html';
                 localStorage.setItem('score', score);
             }
