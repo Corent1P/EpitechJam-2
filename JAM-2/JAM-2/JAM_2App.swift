@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct JAM_2App: App {
+    @StateObject var Infos = infos()
     var body: some Scene {
+        
         WindowGroup {
             HomeView()
+            .environmentObject(Infos)
         }
     }
 }

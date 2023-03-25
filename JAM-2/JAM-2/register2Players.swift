@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct register2Players: View {
-    
-    @State var pseudo: String = ""
-    @State var pseudo2: String = ""
     @State var rules: Bool = false
+    
+    @EnvironmentObject var Infos:infos
     
     var body: some View {
         ZStack{
@@ -21,15 +20,15 @@ struct register2Players: View {
             VStack {
                 userImage2()
                 type_name2()
-                pseudoName2(pseudo: $pseudo)
+                pseudoName2(pseudo: $Infos.namePlayer1)
                     .padding()
 
                 type_name3()
                 
-                pseudoName3(pseudo: $pseudo2)
+                pseudoName3(pseudo: $Infos.namePlayer2)
                 
                 Button {
-                    if (!pseudo.isEmpty && !pseudo2.isEmpty) {
+                    if (!Infos.namePlayer1.isEmpty && !Infos.namePlayer2.isEmpty) {
                         rules = true
                     }
                 } label: {
