@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var count = 0
     @State private var count2 = 0
     @State private var test = 3
+    @State var loose: Bool = false
     
     @State var timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     @State var timer2 = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -57,6 +58,8 @@ struct ContentView: View {
                                     .onReceive(timer) { _ in
                                         if (blueCircle == false || whiteCircle == false) {
                                             print("t'asa perdu")
+                                            loose = true
+                                            
                                         }
                                     }
                                     .onReceive(timer2) { _ in
@@ -98,6 +101,7 @@ struct ContentView: View {
                     .ignoresSafeArea()
                 }
             }
+            NavigationLink("", destination:  LooseView(), isActive: $loose)
         }
     }
 }
