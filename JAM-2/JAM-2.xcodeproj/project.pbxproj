@@ -11,6 +11,7 @@
 		CC18F99A29CE4BDD00D16846 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC18F99929CE4BDD00D16846 /* ContentView.swift */; };
 		CC18F99C29CE4BDE00D16846 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC18F99B29CE4BDE00D16846 /* Assets.xcassets */; };
 		CC18F99F29CE4BDE00D16846 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC18F99E29CE4BDE00D16846 /* Preview Assets.xcassets */; };
+		ECC51F4029CF2CCA0018E283 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC51F3F29CF2CCA0018E283 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		CC18F99929CE4BDD00D16846 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CC18F99B29CE4BDE00D16846 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC18F99E29CE4BDE00D16846 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ECC51F3F29CF2CCA0018E283 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				CC18F99729CE4BDD00D16846 /* JAM_2App.swift */,
 				CC18F99929CE4BDD00D16846 /* ContentView.swift */,
+				ECC51F3F29CF2CCA0018E283 /* HomeView.swift */,
 				CC18F99B29CE4BDE00D16846 /* Assets.xcassets */,
 				CC18F99D29CE4BDE00D16846 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECC51F4029CF2CCA0018E283 /* HomeView.swift in Sources */,
 				CC18F99A29CE4BDD00D16846 /* ContentView.swift in Sources */,
 				CC18F99829CE4BDD00D16846 /* JAM_2App.swift in Sources */,
 			);
