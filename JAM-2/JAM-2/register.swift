@@ -12,6 +12,7 @@ let lightGrayColor = Color(red: 219.0/255.0, green: 213.0/255.0, blue: 214.0/255
 struct register: View {
     
     @State var pseudo: String = ""
+    @State var rules: Bool = false
     
     var body: some View {
         ZStack{
@@ -23,10 +24,24 @@ struct register: View {
                 type_name()
                 pseudoName(pseudo: $pseudo)
                 
-                Button(action: {print("Button push")}) {
-                    EnterButton()
+                Button {
+                    if (!pseudo.isEmpty) {
+                        rules = true
+                    }
+                } label: {
+                    Text("Enter Game")
+                        .padding()
+                        .font(.system(size: 30))
+                        .shadow(radius: 6, x: -1, y: 1)
+                        .frame(width: 320, height: 68)
+                        .background(Color("Color_Button"))
+                        .foregroundColor(.white)
+                        .bold()
                 }
+                .cornerRadius(16)
+                .shadow(radius: 6, x: -3, y: 3)
             }
+            NavigationLink("", destination:  rule(), isActive: $rules)
         }
     }
 }
@@ -59,25 +74,6 @@ struct register: View {
         }
     }
     
-    struct EnterButton: View {
-        var body: some View {
-            Button {
-//                selection = true
-            } label: {
-                Text("Enter Game")
-                    .padding()
-                    .font(.system(size: 30))
-                    .shadow(radius: 6, x: -1, y: 1)
-                    .frame(width: 320, height: 68)
-                    .background(Color("Color_Button"))
-                    .foregroundColor(.white)
-                    .bold()
-            }
-            .cornerRadius(16)
-            .shadow(radius: 6, x: -3, y: 3)
-        }
-    }
-
 struct pseudoName: View {
     
     @Binding var pseudo:String

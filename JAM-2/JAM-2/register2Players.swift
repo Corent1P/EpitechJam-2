@@ -10,6 +10,8 @@ import SwiftUI
 struct register2Players: View {
     
     @State var pseudo: String = ""
+    @State var pseudo2: String = ""
+    @State var rules: Bool = false
     
     var body: some View {
         ZStack{
@@ -24,12 +26,27 @@ struct register2Players: View {
 
                 type_name3()
                 
-                pseudoName3(pseudo: $pseudo)
+                pseudoName3(pseudo: $pseudo2)
                 
-                Button(action: {print("Button push")}) {
-                    EnterButton2()
+                Button {
+                    if (!pseudo.isEmpty && !pseudo2.isEmpty) {
+                        rules = true
+                    }
+                } label: {
+                    Text("Enter Game")
+                        .padding()
+                        .font(.system(size: 30))
+                        .shadow(radius: 6, x: -1, y: 1)
+                        .frame(width: 320, height: 68)
+                        .background(Color("Color_Button"))
+                        .foregroundColor(.white)
+                        .bold()
                 }
+
+                .padding()
+                .shadow(radius: 6, x: -3, y: 3)
             }
+            NavigationLink("", destination:  rule2players(), isActive: $rules)
         }
     }
 }
@@ -72,25 +89,6 @@ struct register2Players: View {
         }
     }
     
-    struct EnterButton2: View {
-        var body: some View {
-            Button {
-//                selection = true
-            } label: {
-                Text("Enter Game")
-                    .padding()
-                    .font(.system(size: 30))
-                    .shadow(radius: 6, x: -1, y: 1)
-                    .frame(width: 320, height: 68)
-                    .background(Color("Color_Button"))
-                    .foregroundColor(.white)
-                    .bold()
-            }
-
-            .padding()
-            .shadow(radius: 6, x: -3, y: 3)
-        }
-    }
 
 struct pseudoName2: View {
     
