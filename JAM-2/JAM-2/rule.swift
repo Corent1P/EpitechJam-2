@@ -31,17 +31,45 @@ struct rule_Previews: PreviewProvider {
 struct title: View {
     var body: some View {
         Text("Rule of the Game")
+            .opacity(0.5)
             .font(.largeTitle)
             .fontWeight(.semibold)
-            .padding(.top, -300.0)
+            .padding(.top, -150)
     }
 }
 
 struct para_rule: View {
     var body: some View {
-        Text("The game is simple, juste press the two keys you see on the screen at the same time")
-            .font(.title2)
-            .multilineTextAlignment(.center)
-            .padding(.top, -200.0)
+        VStack {
+            Text("The game is simple, juste press the two keys you see on the screen at the same time.")
+                .opacity(0.5)
+                .font(.title2)
+                .multilineTextAlignment(.center)
+                .padding()
+                .padding(.top, -100)
+                
+            
+            Text("You win the game when you reach to 42 points.")
+                .opacity(0.5)
+                .font(.title2)
+                .multilineTextAlignment(.center)
+                .padding()
+            
+            Text("You loose the game when the timer reach 0.")
+                .opacity(0.5)
+                .font(.title2)
+                .multilineTextAlignment(.center)
+                .padding()
+            
+            Text("GOOD LUCK !!")
+                .opacity(0.5)
+                .font(.title2)
+                .multilineTextAlignment(.center)
+                .padding()
+    
+    
+    
+        }
     }
+    
 }
