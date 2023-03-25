@@ -49,11 +49,26 @@ struct para_rule_2: View {
                 .multilineTextAlignment(.center)
                 .padding()
             
+            Text("Player 1 is Black Button.")
+                .opacity(0.5)
+                .font(.title2)
+                .multilineTextAlignment(.center)
+                .padding()
+                .bold()
+            
+            Text("Player 2 is Gray Button.")
+                .opacity(0.5)
+                .font(.title2)
+                .multilineTextAlignment(.center)
+                .padding()
+                .bold()
+            
             Text("GOOD LUCK !!")
                 .opacity(0.5)
                 .font(.title2)
                 .multilineTextAlignment(.center)
                 .padding()
+            
     
     
     

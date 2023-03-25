@@ -9,6 +9,7 @@ import SwiftUI
 
 struct Choose_Game: View {
     @State private var selection = false
+    @State private var selection2 = false
     
     var body: some View {
         NavigationView {
@@ -42,7 +43,7 @@ struct Choose_Game: View {
                     .shadow(radius: 6, x: -3, y: 3)
                     .padding(.bottom, 40)
                     Button {
-                        selection = true
+                        selection2 = true
                     } label: {
                         Text("Duo Game")
                             .padding()
@@ -56,6 +57,8 @@ struct Choose_Game: View {
                     .cornerRadius(16)
                     .shadow(radius: 6, x: -3, y: 3)
                     NavigationLink("", destination:  register(), isActive: $selection)
+                    
+                    NavigationLink("", destination:  register2Players(), isActive: $selection2)
                 }
             }
             

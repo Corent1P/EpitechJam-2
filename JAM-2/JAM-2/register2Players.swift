@@ -1,17 +1,16 @@
 //
-//  register.swift
+//  register2Players.swift
 //  JAM-2
 //
-//  Created by Mathis Borlet on 25/03/2023.
+//  Created by Athéna Mojzes on 25/03/2023.
 //
 
 import SwiftUI
 
-let lightGrayColor = Color(red: 219.0/255.0, green: 213.0/255.0, blue: 214.0/255.0)
-
-struct register: View {
+struct register2Players: View {
     
     @State var pseudo: String = ""
+    @State var pseudo2: String = ""
     @State var rules: Bool = false
     
     var body: some View {
@@ -20,12 +19,17 @@ struct register: View {
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
-                userImage()
-                type_name()
-                pseudoName(pseudo: $pseudo)
+                userImage2()
+                type_name2()
+                pseudoName2(pseudo: $pseudo)
+                    .padding()
+
+                type_name3()
+                
+                pseudoName3(pseudo: $pseudo2)
                 
                 Button {
-                    if (!pseudo.isEmpty) {
+                    if (!pseudo.isEmpty && !pseudo2.isEmpty) {
                         rules = true
                     }
                 } label: {
@@ -38,23 +42,34 @@ struct register: View {
                         .foregroundColor(.white)
                         .bold()
                 }
-                .cornerRadius(16)
+
+                .padding()
                 .shadow(radius: 6, x: -3, y: 3)
             }
-            NavigationLink("", destination:  rule(), isActive: $rules)
+            NavigationLink("", destination:  rule2players(), isActive: $rules)
         }
     }
 }
     
-    struct register_Previews: PreviewProvider {
+    struct register2Players_Previews: PreviewProvider {
         static var previews: some View {
-            register()
+            register2Players()
         }
     }
     
-    struct type_name: View {
+    struct type_name2: View {
         var body: some View {
-            Text("Type your name")
+            Text("Player 1")
+                .font(.largeTitle)
+                .fontWeight(.semibold)
+                .padding(.bottom, 20)
+                .opacity(0.4)
+        }
+    }
+
+    struct type_name3: View {
+        var body: some View {
+            Text("Player 2")
                 .font(.largeTitle)
                 .fontWeight(.semibold)
                 .padding(.bottom, 20)
@@ -62,7 +77,7 @@ struct register: View {
         }
     }
     
-    struct userImage: View {
+    struct userImage2: View {
         var body: some View {
             Image("illusion optique")
                 .resizable()
@@ -74,7 +89,8 @@ struct register: View {
         }
     }
     
-struct pseudoName: View {
+
+struct pseudoName2: View {
     
     @Binding var pseudo:String
     
@@ -87,3 +103,18 @@ struct pseudoName: View {
             .frame(width: 280)
     }
 }
+
+struct pseudoName3: View {
+    
+    @Binding var pseudo:String
+    
+    var body: some View {
+        TextField("Pseudo", text: $pseudo)
+            .padding()
+            .background(lightGrayColor)
+            .cornerRadius(5.0)
+            .padding(.bottom, 20)
+            .frame(width: 280)
+    }
+}
+
