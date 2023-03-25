@@ -17,6 +17,7 @@
 		CC18F99F29CE4BDE00D16846 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC18F99E29CE4BDE00D16846 /* Preview Assets.xcassets */; };
 		CC89C67F29CF4C0600F6D429 /* MusicClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC89C67E29CF4C0600F6D429 /* MusicClass.swift */; };
 		CC89C68129CF51AF00F6D429 /* MultiGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC89C68029CF51AF00F6D429 /* MultiGameView.swift */; };
+		EC2194D129CF4EC000C58838 /* register2Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC2194D029CF4EC000C58838 /* register2Players.swift */; };
 		ECC51F4029CF2CCA0018E283 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECC51F3F29CF2CCA0018E283 /* HomeView.swift */; };
 		EF6D11AB29CF4B3800E45EBF /* rule2players.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6D11AA29CF4B3800E45EBF /* rule2players.swift */; };
 /* End PBXBuildFile section */
@@ -33,6 +34,7 @@
 		CC18F99E29CE4BDE00D16846 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CC89C67E29CF4C0600F6D429 /* MusicClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicClass.swift; sourceTree = "<group>"; };
 		CC89C68029CF51AF00F6D429 /* MultiGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiGameView.swift; sourceTree = "<group>"; };
+		EC2194D029CF4EC000C58838 /* register2Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = register2Players.swift; sourceTree = "<group>"; };
 		ECC51F3F29CF2CCA0018E283 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EF6D11AA29CF4B3800E45EBF /* rule2players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rule2players.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,6 +73,7 @@
 				CC18F99729CE4BDD00D16846 /* JAM_2App.swift */,
 				CC18F99929CE4BDD00D16846 /* ContentView.swift */,
 				8C9FE0B029CF41C100D8821C /* register.swift */,
+				EC2194D029CF4EC000C58838 /* register2Players.swift */,
 				8C9FE0B229CF41CD00D8821C /* rule.swift */,
 				EF6D11AA29CF4B3800E45EBF /* rule2players.swift */,
 				8C9FE0AE29CF3F3800D8821C /* Choose_Game.swift */,
@@ -169,6 +172,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC2194D129CF4EC000C58838 /* register2Players.swift in Sources */,
 				ECC51F4029CF2CCA0018E283 /* HomeView.swift in Sources */,
 				CC18F99A29CE4BDD00D16846 /* ContentView.swift in Sources */,
 				CC89C67F29CF4C0600F6D429 /* MusicClass.swift in Sources */,
