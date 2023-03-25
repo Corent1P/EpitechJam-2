@@ -12,8 +12,11 @@ struct ContentView: View {
     @State private var whiteCircle = false
     @State private var count = 0
     @State private var count2 = 0
+    @State private var test = 3
     
     @State var timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
+    @State var timer2 = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
     
     let positions = [
         [CGFloat(40), CGFloat(100)], [CGFloat(100), CGFloat(700)],[CGFloat(381), CGFloat(800)],[CGFloat(350), CGFloat(300)],[CGFloat(40), CGFloat(699)],[CGFloat(205), CGFloat(144)],[CGFloat(344), CGFloat(167)],[CGFloat(250), CGFloat(500)],[CGFloat(100), CGFloat(200)],[CGFloat(144), CGFloat(444)],[CGFloat(266), CGFloat(555)],[CGFloat(190), CGFloat(499)],[CGFloat(244), CGFloat(195)],[CGFloat(222), CGFloat(444)],[CGFloat(40), CGFloat(570)],[CGFloat(231), CGFloat(555)]
@@ -29,9 +32,17 @@ struct ContentView: View {
                 GeometryReader { geometry in
                     ZStack {
                         let radius = CGFloat.random(in: 10...30)
+                        Circle()
+                            .foregroundColor(.white)
+                            .frame(width: 70, height: 70)
+                            .position(x: 200, y: 100)
+                        Text("\(test)")
+                            .font(.title)
+                            .bold()
+                            .foregroundColor(.red)
+                            .position(x: 200, y: 100)
                         ForEach(0..<Int.random(in: 1...1), id: \.self) { _ in
                             ZStack {
-                                
                                 Circle()
                                     .onTapGesture {
                                         blueCircle = true
@@ -46,6 +57,12 @@ struct ContentView: View {
                                     .onReceive(timer) { _ in
                                         if (blueCircle == false || whiteCircle == false) {
                                             print("t'asa perdu")
+                                        }
+                                    }
+                                    .onReceive(timer2) { _ in
+                                        test -= 1
+                                        if (test <= 0) {
+                                            test = 0
                                         }
                                     }
                             }
@@ -93,6 +110,7 @@ extension ContentView {
         blueCircle = false
         whiteCircle = false
         timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
+        test = 3
     }
 }
 
