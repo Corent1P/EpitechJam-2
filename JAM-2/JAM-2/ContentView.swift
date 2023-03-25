@@ -113,8 +113,13 @@ extension ContentView {
         count = Int(CGFloat.random(in:0...16))
         blueCircle = false
         whiteCircle = false
-        timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
-        test = 3
+        if (count2 < 20) {
+            timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
+            test = 3
+        } else {
+            timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
+            test = 2
+        }
     }
 }
 
