@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Choose_Game: View {
+    @State private var selection = false
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -25,7 +27,7 @@ struct Choose_Game: View {
                         .padding(.top, 40)
                         .padding(.bottom, 40)
                     Button {
-                        print("Nabilla")
+                        selection = true
                     } label: {
                         Text("Solo Game")
                             .padding()
@@ -40,7 +42,7 @@ struct Choose_Game: View {
                     .shadow(radius: 6, x: -3, y: 3)
                     .padding(.bottom, 40)
                     Button {
-                        print("Nabilla")
+                        selection = true
                     } label: {
                         Text("Duo Game")
                             .padding()
@@ -53,9 +55,12 @@ struct Choose_Game: View {
                     }
                     .cornerRadius(16)
                     .shadow(radius: 6, x: -3, y: 3)
+                    NavigationLink("", destination:  register(), isActive: $selection)
                 }
             }
+            
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

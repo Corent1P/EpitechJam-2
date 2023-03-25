@@ -46,7 +46,7 @@ struct HomeView: View {
                             showProgressView = false
                         }
                     }
-                NavigationLink("", destination:  ContentView(), isActive: $selection)
+                NavigationLink("", destination:  Choose_Game(), isActive: $selection)
             }.ignoresSafeArea()
         }
     }
