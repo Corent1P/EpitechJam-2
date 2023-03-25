@@ -13,6 +13,8 @@ struct ContentView: View {
     @State private var count = 0
     @State private var count2 = 0
     
+    @State var timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
+    
     let positions = [
         [CGFloat(40), CGFloat(100)], [CGFloat(100), CGFloat(700)],[CGFloat(381), CGFloat(800)],[CGFloat(350), CGFloat(300)],[CGFloat(40), CGFloat(699)],[CGFloat(205), CGFloat(144)],[CGFloat(344), CGFloat(167)],[CGFloat(250), CGFloat(500)],[CGFloat(100), CGFloat(200)],[CGFloat(144), CGFloat(444)],[CGFloat(266), CGFloat(555)],[CGFloat(190), CGFloat(499)],[CGFloat(244), CGFloat(195)],[CGFloat(222), CGFloat(444)],[CGFloat(40), CGFloat(570)],[CGFloat(231), CGFloat(555)]
     ]
@@ -41,6 +43,11 @@ struct ContentView: View {
                                     .position(x: positions[count][0], y: positions[count][1])
                                     .bold()
                                     .foregroundColor(.white)
+                                    .onReceive(timer) { _ in
+                                        if (blueCircle == false || whiteCircle == false) {
+                                            print("t'asa perdu")
+                                        }
+                                    }
                             }
                         }
                         ForEach(0..<Int.random(in: 1...1), id: \.self) { _ in
@@ -81,9 +88,11 @@ struct ContentView: View {
 extension ContentView {
     
     func makeUIView()  {
+        timer.upstream.connect().cancel()
         count = Int(CGFloat.random(in:0...16))
         blueCircle = false
         whiteCircle = false
+        timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     }
 }
 
