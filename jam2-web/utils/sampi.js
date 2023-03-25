@@ -22,3 +22,9 @@ const sampiUse = (moduleName) => {
         .then(module => module())
         .catch(error => console.error(error));
 }
+
+const sampiUseMany = (moduleNames) => {
+    moduleNames.forEach(moduleName => {
+        sampiUse(moduleName);
+    });
+}

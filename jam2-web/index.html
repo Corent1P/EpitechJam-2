@@ -52,11 +52,12 @@
     <div id="background">
         <script src="./utils/sampi.js"></script>
         <div id="choices">
-            <p id="score" class="btn"></p>
+            <button onclick="sampiUse('showSkieur')" id="text" class="btn"></button>
+            <p id="score"></p>
             <button class="btn" onclick="sampiUse('redirectToGame')">Play</button>
         </div>
         <script>
-            sampiUse('showScore')
+            sampiUseMany(['showScore', 'showGameName']);
         </script>
     </div>
 </body>
