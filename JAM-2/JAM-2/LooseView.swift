@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LooseView: View {
+    @State var home: Bool = false
+    
     var body: some View {
         ZStack {
             Image("skieur")
@@ -17,8 +19,24 @@ struct LooseView: View {
                 .bold()
                 .foregroundColor(Color("Color"))
                 .position(x: 200, y: 350)
+            VStack {
+                Spacer()
+                Button(action: {
+                    home = true
+                }) {
+                    Text("Rejouer")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(width: 140, height: 50)
+                        .background(Color(UIColor(red:69/255, green: 173/255, blue: 164/255, alpha:1.0)))
+                        .cornerRadius(15.0)
+                        .padding(20)
+                }
+            }
+            NavigationLink("", destination:  HomeView(), isActive: $home)
         }.ignoresSafeArea()
     }
+    
 }
 
 struct LooseView_Previews: PreviewProvider {
