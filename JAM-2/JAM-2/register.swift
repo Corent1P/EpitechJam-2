@@ -7,20 +7,25 @@
 
 import SwiftUI
 
-let lightGrayColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0)
+let lightGrayColor = Color(red: 219.0/255.0, green: 213.0/255.0, blue: 214.0/255.0)
 
 struct register: View {
     
     @State var pseudo: String = ""
     
     var body: some View {
-        VStack {
-            userImage()
-            type_name()
-            pseudoName(pseudo: $pseudo)
+        ZStack{
+            LinearGradient(colors: [.white, .pink], startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all)
             
-            Button(action: {print("Button push")}) {
-                EnterButton()
+            VStack {
+                userImage()
+                type_name()
+                pseudoName(pseudo: $pseudo)
+                
+                Button(action: {print("Button push")}) {
+                    EnterButton()
+                }
             }
         }
     }
@@ -59,7 +64,7 @@ struct register: View {
                 .font(.headline)
                 .foregroundColor(.white)
                 .padding()
-                .frame(width: 220, height: 60)
+                .frame(width: 230, height: 60)
                 .background(Color.black)
                 .cornerRadius(35.0)
         }
@@ -75,5 +80,6 @@ struct pseudoName: View {
             .background(lightGrayColor)
             .cornerRadius(5.0)
             .padding(.bottom, 20)
+            .frame(width: 280)
     }
 }
