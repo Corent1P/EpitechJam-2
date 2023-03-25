@@ -1,21 +1,37 @@
 //
-//  ContentView.swift
+//  MultiGameView.swift
 //  JAM-2
 //
-//  Created by Killian Desserich on 24/03/2023.
+//  Created by Athéna Mojzes on 25/03/2023.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+//struct MultiGameView: View {
+//    var body: some View {
+//        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+//    }
+//}
+//
+//struct MultiGameView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MultiGameView()
+//    }
+//}
+
+struct MultiGameView: View {
     @State private var blueCircle = false
     @State private var whiteCircle = false
     @State private var count = 0
     @State private var count2 = 0
-    @State private var test = 3
-    @State var loose: Bool = false
+    @State private var countTap = 0
     
-    @State var timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
+    @State private var positionBlue = 0
+    @State private var positionWhite = 0
+    
+    @State private var test = 60
+    
+    @State var timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
     @State var timer2 = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     
@@ -36,12 +52,12 @@ struct ContentView: View {
                         Circle()
                             .foregroundColor(.white)
                             .frame(width: 70, height: 70)
-                            .position(x: 200, y: 100)
+                            .position(x: 221, y: 100)
                         Text("\(test)")
                             .font(.title)
                             .bold()
                             .foregroundColor(.red)
-                            .position(x: 200, y: 100)
+                            .position(x: 222, y: 100)
                         ForEach(0..<Int.random(in: 1...1), id: \.self) { _ in
                             ZStack {
                                 Circle()
@@ -50,16 +66,14 @@ struct ContentView: View {
                                     }
                                     .foregroundColor(.black)
                                     .frame(width: 70, height: 70)
-                                    .position(x: positions[count][0], y: positions[count][1])
+                                    .position(x: positions[positionBlue][0], y: positions[positionBlue][1])
                                 Text("\(count2)")
-                                    .position(x: positions[count][0], y: positions[count][1])
+                                    .position(x: positions[positionBlue][0], y: positions[positionBlue][1])
                                     .bold()
                                     .foregroundColor(.white)
                                     .onReceive(timer) { _ in
                                         if (blueCircle == false || whiteCircle == false) {
                                             print("t'asa perdu")
-                                            loose = true
-                                            
                                         }
                                     }
                                     .onReceive(timer2) { _ in
@@ -79,19 +93,30 @@ struct ContentView: View {
                                         }
                                         .foregroundColor(.gray)
                                         .frame(width: 70, height: 70)
-                                        .position(x: positions2[count][0], y: positions2[count][1])
-                                    Text("\(count2)")
-                                        .position(x: positions2[count][0], y: positions2[count][1])
+                                        .position(x: positions2[positionWhite][0], y: positions2[positionWhite][1])
+                                    Text("\(countTap)")
+                                        .position(x: positions2[positionWhite][0], y: positions2[positionWhite][1])
                                         .bold()
                                         .foregroundColor(.white)
 
                                 }
                         }
-                        if (blueCircle == true && whiteCircle == true) {
+                        
+                        if (blueCircle == true) {
                             Text("")
                                 .onAppear() {
-                                    makeUIView()
+                                    blueCircle = false
                                     count2 = count2 + 1
+                                    positionBlue = Int(CGFloat.random(in:0...16))
+                                }
+                        }
+                        
+                        if (whiteCircle == true) {
+                            Text("")
+                                .onAppear() {
+                                    whiteCircle = false
+                                    countTap = countTap + 1
+                                    positionWhite = Int(CGFloat.random(in:0...16))
                                 }
                         }
                     }.background(
@@ -101,30 +126,13 @@ struct ContentView: View {
                     .ignoresSafeArea()
                 }
             }
-            NavigationLink("", destination:  LooseView(), isActive: $loose)
         }
     }
 }
 
-extension ContentView {
-    
-    func makeUIView()  {
-        timer.upstream.connect().cancel()
-        count = Int(CGFloat.random(in:0...16))
-        blueCircle = false
-        whiteCircle = false
-        if (count2 < 20) {
-            timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
-            test = 3
-        } else {
-            timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
-            test = 2
-        }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
+struct MultiGameView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MultiGameView()
     }
 }
+
