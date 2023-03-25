@@ -41,7 +41,7 @@ struct title: View {
 struct para_rule: View {
     var body: some View {
         VStack {
-            Text("The game is simple, juste press the two keys you see on the screen at the same time.")
+            Text("The game is simple, just press the two keys you see on the screen at the same time.")
                 .opacity(0.5)
                 .font(.title2)
                 .multilineTextAlignment(.center)
