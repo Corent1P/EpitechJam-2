@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C12C0E629D096F100A7D8B4 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C12C0E529D096F100A7D8B4 /* SwiftUIView.swift */; };
 		8C9FE0AF29CF3F3800D8821C /* Choose_Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9FE0AE29CF3F3800D8821C /* Choose_Game.swift */; };
 		8C9FE0B129CF41C100D8821C /* register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9FE0B029CF41C100D8821C /* register.swift */; };
 		8C9FE0B329CF41CD00D8821C /* rule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9FE0B229CF41CD00D8821C /* rule.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8C12C0E529D096F100A7D8B4 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		8C9FE0AE29CF3F3800D8821C /* Choose_Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Choose_Game.swift; sourceTree = "<group>"; };
 		8C9FE0B029CF41C100D8821C /* register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = register.swift; sourceTree = "<group>"; };
 		8C9FE0B229CF41CD00D8821C /* rule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rule.swift; sourceTree = "<group>"; };
@@ -79,7 +81,6 @@
 			isa = PBXGroup;
 			children = (
 				8C9FE0B629CF811100D8821C /* ClassInfos.swift */,
-				CC18F99729CE4BDD00D16846 /* JAM_2App.swift */,
 				CC18F99929CE4BDD00D16846 /* ContentView.swift */,
 				8C9FE0B029CF41C100D8821C /* register.swift */,
 				EC2194D029CF4EC000C58838 /* register2Players.swift */,
@@ -94,6 +95,8 @@
 				CCFDB1E629D0716700715BFF /* EndSoloView.swift */,
 				CC18F99B29CE4BDE00D16846 /* Assets.xcassets */,
 				CC18F99D29CE4BDE00D16846 /* Preview Content */,
+				8C12C0E529D096F100A7D8B4 /* SwiftUIView.swift */,
+				CC18F99729CE4BDD00D16846 /* JAM_2App.swift */,
 			);
 			path = "JAM-2";
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 			files = (
 				EC2194D129CF4EC000C58838 /* register2Players.swift in Sources */,
 				ECC51F4029CF2CCA0018E283 /* HomeView.swift in Sources */,
+				8C12C0E629D096F100A7D8B4 /* SwiftUIView.swift in Sources */,
 				CC18F99A29CE4BDD00D16846 /* ContentView.swift in Sources */,
 				CC89C67F29CF4C0600F6D429 /* MusicClass.swift in Sources */,
 				8C9FE0B329CF41CD00D8821C /* rule.swift in Sources */,

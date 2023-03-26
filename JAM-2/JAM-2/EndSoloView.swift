@@ -35,7 +35,7 @@ struct EndSoloView: View {
                     .scaleEffect(1.0, anchor: .center)
                     .font(.title)
                     .padding()
-                    .foregroundColor(.black)
+                    .foregroundColor(.white)
                 
                 Button {
                     Infos.nameplayerSolo = ""
@@ -53,6 +53,7 @@ struct EndSoloView: View {
                 .cornerRadius(16)
                 .shadow(radius: 6, x: -3, y: 3)
             }
+            NavigationLink("", destination:  Choose_Game(), isActive: $GoBackMenu)
         }
         .navigationBarHidden(true)
     }

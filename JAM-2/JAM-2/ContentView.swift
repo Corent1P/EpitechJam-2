@@ -71,9 +71,6 @@ struct ContentView: View {
                                             test = 0
                                         }
                                         if (test <= 0 && Iswin == false) {
-                                            print("fdskjvlfh")
-                
-                                                
                                             loose = true
                                         }
                                     }
@@ -124,10 +121,10 @@ extension ContentView {
         count = Int(CGFloat.random(in:0...16))
         blueCircle = false
         whiteCircle = false
-        if (Infos.scorePlayerSolo < 20) {
+//        if (Infos.scorePlayerSolo < 20) {
             test = 2
-        }
-        if (Infos.scorePlayerSolo >= 1) {
+//        }
+        if (Infos.scorePlayerSolo >= 42) {
             timer.upstream.connect().cancel()
             Iswin = true
             win = true
