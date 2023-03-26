@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var test = 2
     @State var loose: Bool = false
     @State var win: Bool = false
+    @State var Iswin: Bool = false
     
     @State var timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
     @State var timer2 = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -69,6 +70,12 @@ struct ContentView: View {
                                         if (test <= 0) {
                                             test = 0
                                         }
+                                        if (test <= 0 && Iswin == false) {
+                                            print("fdskjvlfh")
+                
+                                                
+                                            loose = true
+                                        }
                                     }
                             }
                         }
@@ -96,12 +103,6 @@ struct ContentView: View {
                                     Infos.scorePlayerSolo = Infos.scorePlayerSolo + 1
                                 }
                         }
-                        if (test == 0) {
-                            Text("")
-                                .onAppear() {
-                                    loose = true
-                                }
-                        }
                     }.background(
                         Image("Illusion")
                             .resizable()
@@ -126,8 +127,9 @@ extension ContentView {
         if (Infos.scorePlayerSolo < 20) {
             test = 2
         }
-        if (Infos.scorePlayerSolo >= 42) {
+        if (Infos.scorePlayerSolo >= 1) {
             timer.upstream.connect().cancel()
+            Iswin = true
             win = true
         }
     }
