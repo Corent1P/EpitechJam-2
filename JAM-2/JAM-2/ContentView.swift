@@ -117,13 +117,11 @@ extension ContentView {
         blueCircle = false
         whiteCircle = false
         if (Infos.scorePlayerSolo < 20) {
-            timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
             test = 3
         } else {
-            timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
             test = 2
         }
-        if (Infos.scorePlayerSolo == 5) {
+        if (Infos.scorePlayerSolo >= 42) {
             timer.upstream.connect().cancel()
             win = true
         }
