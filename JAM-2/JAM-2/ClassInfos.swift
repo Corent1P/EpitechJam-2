@@ -10,6 +10,8 @@ import Foundation
 class infos: ObservableObject {
     @Published var namePlayer1 = ""
     @Published var namePlayer2 = ""
+    @Published var nameplayerSolo = ""
     @Published var scorePlayer1 = 0
     @Published var scorePlayer2 = 0
+    @Published var scorePlayerSolo = 0
 }

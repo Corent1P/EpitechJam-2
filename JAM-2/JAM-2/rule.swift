@@ -36,6 +36,7 @@ struct rule: View {
                 .padding()
                 .shadow(radius: 6, x: -3, y: 3)
             }
+            NavigationLink("", destination:  ContentView(), isActive: $enterGame)
             
         }
         .navigationBarBackButtonHidden(true)

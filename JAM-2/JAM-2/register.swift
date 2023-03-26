@@ -13,6 +13,7 @@ struct register: View {
     
     @State var pseudo: String = ""
     @State var rules: Bool = false
+    @EnvironmentObject var Infos:infos
     
     var body: some View {
         ZStack{
@@ -22,10 +23,10 @@ struct register: View {
             VStack {
                 userImage()
                 type_name()
-                pseudoName(pseudo: $pseudo)
+                pseudoName(pseudo: $Infos.nameplayerSolo)
                 
                 Button {
-                    if (!pseudo.isEmpty) {
+                    if (!Infos.nameplayerSolo.isEmpty) {
                         rules = true
                     }
                 } label: {

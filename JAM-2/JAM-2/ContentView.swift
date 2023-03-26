@@ -14,9 +14,11 @@ struct ContentView: View {
     @State private var count2 = 0
     @State private var test = 3
     @State var loose: Bool = false
+    @State var win: Bool = false
     
     @State var timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
     @State var timer2 = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @EnvironmentObject var Infos:infos
     
     
     let positions = [
@@ -51,13 +53,13 @@ struct ContentView: View {
                                     .foregroundColor(.black)
                                     .frame(width: 70, height: 70)
                                     .position(x: positions[count][0], y: positions[count][1])
-                                Text("\(count2)")
+                                Text("\(Infos.scorePlayerSolo)")
                                     .position(x: positions[count][0], y: positions[count][1])
                                     .bold()
                                     .foregroundColor(.white)
                                     .onReceive(timer) { _ in
                                         if (blueCircle == false || whiteCircle == false) {
-                                            print("t'asa perdu")
+                                            timer.upstream.connect().cancel()
                                             loose = true
                                             
                                         }
@@ -80,7 +82,7 @@ struct ContentView: View {
                                         .foregroundColor(.gray)
                                         .frame(width: 70, height: 70)
                                         .position(x: positions2[count][0], y: positions2[count][1])
-                                    Text("\(count2)")
+                                    Text("\(Infos.scorePlayerSolo)")
                                         .position(x: positions2[count][0], y: positions2[count][1])
                                         .bold()
                                         .foregroundColor(.white)
@@ -91,7 +93,7 @@ struct ContentView: View {
                             Text("")
                                 .onAppear() {
                                     makeUIView()
-                                    count2 = count2 + 1
+                                    Infos.scorePlayerSolo = Infos.scorePlayerSolo + 1
                                 }
                         }
                     }.background(
@@ -102,6 +104,7 @@ struct ContentView: View {
                 }
             }
             NavigationLink("", destination:  LooseView(), isActive: $loose)
+            NavigationLink("", destination:  EndSoloView(), isActive: $win)
         }
     }
 }
@@ -113,12 +116,16 @@ extension ContentView {
         count = Int(CGFloat.random(in:0...16))
         blueCircle = false
         whiteCircle = false
-        if (count2 < 20) {
+        if (Infos.scorePlayerSolo < 20) {
             timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
             test = 3
         } else {
             timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
             test = 2
+        }
+        if (Infos.scorePlayerSolo == 5) {
+            timer.upstream.connect().cancel()
+            win = true
         }
     }
 }
