@@ -8,50 +8,36 @@
 import SwiftUI
 
 struct EndSoloView: View {
-    @EnvironmentObject var Infos:infos
+    
+    @State var GoBackMenu: Bool = false
+//    @EnvironmentObject var Infos:infos
+    
     var body: some View {
 
         ZStack {
             LinearGradient(colors: [.white, .pink], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
+            
+            Image("BG")
+                .resizable()
+                .scaledToFill()
+                .edgesIgnoringSafeArea(.all)
             VStack {
                 
-                Text("WINNER'S \(Infos.nameplayerSolo)")
-                    .font(.system(size: 36))
-                    .opacity(0.7)
-                    .italic()
-                    .bold()
-                    .opacity(0.8)
-                    .scaleEffect(1.0, anchor: .center)
-                    .font(.title)
-                    .padding()
-        
-                Text("------")
-                    .font(.system(size: 36))
-                    .opacity(0.7)
-                    .italic()
-                    .bold()
-                    .opacity(0.8)
-                    .scaleEffect(1.0, anchor: .center)
-                    .font(.title)
-                    .padding()
-                Text("\(Infos.nameplayerSolo)'S SCORE")
-                    .font(.system(size: 36))
-                    .opacity(0.7)
-                    .italic()
-                    .bold()
-                    .opacity(0.8)
-                    .scaleEffect(1.0, anchor: .center)
-                    .font(.title)
-                    .padding()
-                Text("\(Infos.scorePlayerSolo)")
-                    .font(.system(size: 36))
-                    .opacity(0.7)
-                    .italic()
-                    .bold()
-                    .opacity(0.5)
-                    .scaleEffect(1.0, anchor: .center)
-                    .font(.title)
+//                Button {
+//                    Infos.$nameplayerSolo = ""
+//                    GoBackMenu = true
+//                } label: {
+//                    Text("Go back to menu")
+//                        .font(.system(size: 30))
+//                        .shadow(radius: 6, x: -1, y: 1)
+//                        .frame(width: 320, height: 68)
+//                        .background(Color("Color_Button"))
+//                        .foregroundColor(.white)
+//                        .bold()
+//                }
+//                .cornerRadius(16)
+//                .shadow(radius: 6, x: -3, y: 3)
             }
         }
         .navigationBarHidden(true)
@@ -60,6 +46,6 @@ struct EndSoloView: View {
 
 struct EndSoloView_Previews: PreviewProvider {
     static var previews: some View {
-        EndMultiView()
+        EndSoloView()
     }
 }

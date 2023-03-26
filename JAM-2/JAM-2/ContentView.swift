@@ -22,11 +22,11 @@ struct ContentView: View {
     
     
     let positions = [
-        [CGFloat(40), CGFloat(100)], [CGFloat(100), CGFloat(700)],[CGFloat(381), CGFloat(800)],[CGFloat(350), CGFloat(300)],[CGFloat(40), CGFloat(699)],[CGFloat(205), CGFloat(144)],[CGFloat(344), CGFloat(167)],[CGFloat(250), CGFloat(500)],[CGFloat(100), CGFloat(200)],[CGFloat(144), CGFloat(444)],[CGFloat(266), CGFloat(555)],[CGFloat(190), CGFloat(499)],[CGFloat(244), CGFloat(195)],[CGFloat(222), CGFloat(444)],[CGFloat(40), CGFloat(570)],[CGFloat(231), CGFloat(555)]
+        [CGFloat(40), CGFloat(100)], [CGFloat(40), CGFloat(700)],[CGFloat(70), CGFloat(800)],[CGFloat(100), CGFloat(600)],[CGFloat(40), CGFloat(699)],[CGFloat(105), CGFloat(144)],[CGFloat(344), CGFloat(167)],[CGFloat(275), CGFloat(500)],[CGFloat(100), CGFloat(200)],[CGFloat(244), CGFloat(444)],[CGFloat(286), CGFloat(555)],[CGFloat(40), CGFloat(499)],[CGFloat(144), CGFloat(195)],[CGFloat(62), CGFloat(444)],[CGFloat(40), CGFloat(570)],[CGFloat(231), CGFloat(700)]
     ]
     
     let positions2 = [
-        [CGFloat(200), CGFloat(100)], [CGFloat(40), CGFloat(700)],[CGFloat(381), CGFloat(400)],[CGFloat(350), CGFloat(600)],[CGFloat(300), CGFloat(699)],[CGFloat(280), CGFloat(144)],[CGFloat(178), CGFloat(167)],[CGFloat(100), CGFloat(500)],[CGFloat(100), CGFloat(600)],[CGFloat(40), CGFloat(444)],[CGFloat(80), CGFloat(555)],[CGFloat(250), CGFloat(499)],[CGFloat(344), CGFloat(195)],[CGFloat(222), CGFloat(222)],[CGFloat(40), CGFloat(80)],[CGFloat(231), CGFloat(344)]
+        [CGFloat(200), CGFloat(100)], [CGFloat(300), CGFloat(700)],[CGFloat(381), CGFloat(800)],[CGFloat(350), CGFloat(600)],[CGFloat(300), CGFloat(699)],[CGFloat(280), CGFloat(144)],[CGFloat(160), CGFloat(167)],[CGFloat(100), CGFloat(500)],[CGFloat(250), CGFloat(200)],[CGFloat(40), CGFloat(444)],[CGFloat(80), CGFloat(555)],[CGFloat(250), CGFloat(499)],[CGFloat(344), CGFloat(195)],[CGFloat(222), CGFloat(444)],[CGFloat(275), CGFloat(570)],[CGFloat(50), CGFloat(700)]
     ]
     
     var body: some View {
@@ -105,6 +105,7 @@ struct ContentView: View {
             }
             NavigationLink("", destination:  LooseView(), isActive: $loose)
             NavigationLink("", destination:  EndSoloView(), isActive: $win)
+            .navigationBarHidden(true)
         }
     }
 }
@@ -123,7 +124,7 @@ extension ContentView {
             timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
             test = 2
         }
-        if (Infos.scorePlayerSolo == 5) {
+        if (Infos.scorePlayerSolo >= 42) {
             timer.upstream.connect().cancel()
             win = true
         }
