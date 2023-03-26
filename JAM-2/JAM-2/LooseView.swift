@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LooseView: View {
     @State var home: Bool = false
+    @EnvironmentObject var Infos:infos
     
     var body: some View {
         ZStack {
@@ -22,6 +23,8 @@ struct LooseView: View {
             VStack {
                 Spacer()
                 Button(action: {
+                    Infos.nameplayerSolo = ""
+                    Infos.scorePlayerSolo = 0
                     home = true
                 }) {
                     Text("Rejouer")
@@ -35,6 +38,7 @@ struct LooseView: View {
             }
             NavigationLink("", destination:  HomeView(), isActive: $home)
         }.ignoresSafeArea()
+        .navigationBarHidden(true)
     }
     
 }
