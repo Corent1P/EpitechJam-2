@@ -11,6 +11,7 @@ struct EndMultiView: View {
     @EnvironmentObject var Infos:infos
     @State var GoBackMenu: Bool = false
     
+    
     var body: some View {
 
         ZStack {

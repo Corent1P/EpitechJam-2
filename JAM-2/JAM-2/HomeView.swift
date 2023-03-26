@@ -49,6 +49,7 @@ struct HomeView: View {
                 NavigationLink("", destination:  Choose_Game(), isActive: $selection)
             }.ignoresSafeArea()
         }
+        .navigationBarHidden(true)
     }
 }
 
