@@ -9,6 +9,8 @@ import SwiftUI
 
 struct EndMultiView: View {
     @EnvironmentObject var Infos:infos
+    @State var GoBackMenu: Bool = false
+    
     var body: some View {
 
         ZStack {
@@ -89,7 +91,26 @@ struct EndMultiView: View {
                     .opacity(0.5)
                     .scaleEffect(1.0, anchor: .center)
                     .font(.title)
+                
+                Button {
+                    Infos.scorePlayer1 = 0
+                    Infos.scorePlayer2 = 0
+                    Infos.namePlayer1 = ""
+                    Infos.namePlayer2 = ""
+                    GoBackMenu = true
+                } label: {
+                    Text("Go back to menu")
+                        .font(.system(size: 30))
+                        .shadow(radius: 6, x: -1, y: 1)
+                        .frame(width: 320, height: 68)
+                        .background(Color("Color_Button"))
+                        .foregroundColor(.white)
+                        .bold()
+                }
+                .cornerRadius(16)
+                .shadow(radius: 6, x: -3, y: 3)
             }
+            NavigationLink("", destination:  Choose_Game(), isActive: $GoBackMenu)
         }
         .navigationBarHidden(true)
     }
