@@ -12,11 +12,11 @@ struct ContentView: View {
     @State private var whiteCircle = false
     @State private var count = 0
     @State private var count2 = 0
-    @State private var test = 3
+    @State private var test = 2
     @State var loose: Bool = false
     @State var win: Bool = false
     
-    @State var timer = Timer.publish(every: 3, on: .main, in: .common).autoconnect()
+    @State var timer = Timer.publish(every: 2, on: .main, in: .common).autoconnect()
     @State var timer2 = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @EnvironmentObject var Infos:infos
     
@@ -57,13 +57,13 @@ struct ContentView: View {
                                     .position(x: positions[count][0], y: positions[count][1])
                                     .bold()
                                     .foregroundColor(.white)
-                                    .onReceive(timer) { _ in
-                                        if (blueCircle == false || whiteCircle == false) {
-                                            timer.upstream.connect().cancel()
-                                            loose = true
-                                            
-                                        }
-                                    }
+//                                    .onReceive(timer) { _ in
+//                                        if (blueCircle == false || whiteCircle == false) {
+//                                            timer.upstream.connect().cancel()
+//                                            loose = true
+//
+//                                        }
+//                                    }
                                     .onReceive(timer2) { _ in
                                         test -= 1
                                         if (test <= 0) {
@@ -96,6 +96,12 @@ struct ContentView: View {
                                     Infos.scorePlayerSolo = Infos.scorePlayerSolo + 1
                                 }
                         }
+                        if (test == 0) {
+                            Text("")
+                                .onAppear() {
+                                    loose = true
+                                }
+                        }
                     }.background(
                         Image("Illusion")
                             .resizable()
@@ -118,8 +124,6 @@ extension ContentView {
         blueCircle = false
         whiteCircle = false
         if (Infos.scorePlayerSolo < 20) {
-            test = 3
-        } else {
             test = 2
         }
         if (Infos.scorePlayerSolo >= 42) {
